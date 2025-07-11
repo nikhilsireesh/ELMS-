@@ -1,0 +1,808 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MIC College of Technology Official Brand Colors */
+:root {
+  /* Primary Brand Colors (Official Website Theme) */
+  --mic-bright-red: #d32f2f;        /* Primary red for highlights, nav active states */
+  --mic-deep-blue: #002b7f;         /* Primary blue for headings, links */
+  --mic-black: #000000;             /* Pure black for main text */
+  --mic-dark-gray: #4a4a4a;         /* Dark gray for secondary text */
+  --mic-white: #ffffff;             /* Pure white backgrounds */
+  
+  /* Logo-Specific Colors */
+  --mic-logo-yellow: #FFCC00;       /* Sun in logo */
+  --mic-logo-green: #008000;        /* Education/Innovation/Research banners */
+  --mic-logo-blue: #0056b3;         /* Education banner (lighter blue) */
+  --mic-logo-red: #d32f2f;          /* Industry banner (same as bright red) */
+  
+  /* Extended Palette for UI Enhancement */
+  --mic-red-light: #ff5252;
+  --mic-red-dark: #c62828;
+  --mic-blue-light: #1976d2;
+  --mic-blue-dark: #0d47a1;
+  --mic-yellow-light: #fff59d;
+  --mic-yellow-dark: #f57f17;
+  --mic-green-light: #66bb6a;
+  --mic-green-dark: #2e7d32;
+  
+  /* Neutral Grays */
+  --mic-gray-50: #fafafa;
+  --mic-gray-100: #f5f5f5;
+  --mic-gray-200: #eeeeee;
+  --mic-gray-300: #e0e0e0;
+  --mic-gray-400: #bdbdbd;
+  --mic-gray-500: #9e9e9e;
+  --mic-gray-600: #757575;
+  --mic-gray-700: #616161;
+  --mic-gray-800: #424242;
+  --mic-gray-900: #212121;
+  
+  /* Semantic Colors (Using MIC Theme) */
+  --mic-success: var(--mic-logo-green);
+  --mic-warning: var(--mic-logo-yellow);
+  --mic-error: var(--mic-bright-red);
+  --mic-info: var(--mic-deep-blue);
+  
+  /* Primary Aliases */
+  --mic-primary: var(--mic-bright-red);
+  --mic-secondary: var(--mic-deep-blue);
+  --mic-accent: var(--mic-logo-yellow);
+  
+  /* Role-Specific Themes */
+  --admin-primary: var(--mic-bright-red);
+  --admin-secondary: var(--mic-deep-blue);
+  --hod-primary: var(--mic-deep-blue);
+  --hod-secondary: var(--mic-logo-blue);
+  --employee-primary: var(--mic-logo-green);
+  --employee-secondary: var(--mic-deep-blue);
+  
+  /* Gradient Themes */
+  --admin-gradient: linear-gradient(135deg, var(--mic-bright-red), var(--mic-red-dark));
+  --hod-gradient: linear-gradient(135deg, var(--mic-deep-blue), var(--mic-blue-dark));
+  --employee-gradient: linear-gradient(135deg, var(--mic-logo-green), var(--mic-green-dark));
+  --navbar-gradient: linear-gradient(90deg, var(--mic-white), var(--mic-gray-50));
+  --header-gradient: linear-gradient(135deg, var(--mic-deep-blue), var(--mic-bright-red));
+}
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  
+  body {
+    @apply bg-white text-gray-900;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* MIC Themed Button Components */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-white;
+    min-height: 44px;
+    padding: 12px 24px;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background-color: var(--mic-bright-red);
+    color: var(--mic-white);
+    border: 1px solid var(--mic-bright-red);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--mic-red-dark);
+    border-color: var(--mic-red-dark);
+  }
+  
+  .btn-secondary {
+    background-color: var(--mic-deep-blue);
+    color: var(--mic-white);
+    border: 1px solid var(--mic-deep-blue);
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--mic-blue-dark);
+    border-color: var(--mic-blue-dark);
+  }
+  
+  .btn-success {
+    background-color: var(--mic-logo-green);
+    color: var(--mic-white);
+    border: 1px solid var(--mic-logo-green);
+  }
+  
+  .btn-success:hover {
+    background-color: var(--mic-green-dark);
+    border-color: var(--mic-green-dark);
+  }
+  
+  .btn-warning {
+    background-color: var(--mic-logo-yellow);
+    color: var(--mic-black);
+    border: 1px solid var(--mic-logo-yellow);
+  }
+  
+  .btn-warning:hover {
+    background-color: var(--mic-yellow-dark);
+    border-color: var(--mic-yellow-dark);
+    color: var(--mic-white);
+  }
+  
+  .btn-danger {
+    background-color: var(--mic-bright-red);
+    color: var(--mic-white);
+    border: 1px solid var(--mic-bright-red);
+  }
+  
+  .btn-danger:hover {
+    background-color: var(--mic-red-dark);
+    border-color: var(--mic-red-dark);
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    color: var(--mic-deep-blue);
+    border: 1px solid var(--mic-deep-blue);
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--mic-deep-blue);
+    color: var(--mic-white);
+  }
+  
+  .btn-sm {
+    min-height: 36px;
+    padding: 8px 16px;
+    font-size: 0.75rem;
+  }
+  
+  .btn-md {
+    min-height: 44px;
+    padding: 12px 24px;
+    font-size: 0.875rem;
+  }
+  
+  .btn-lg {
+    min-height: 52px;
+    padding: 16px 32px;
+    font-size: 1rem;
+  }
+  
+  /* Special form button styles */
+  .btn-form {
+    min-height: 48px;
+    padding: 14px 28px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-form:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn-form:active {
+    transform: translateY(0);
+  }
+  
+  /* MIC Themed Card Components */
+  .card {
+    background-color: var(--mic-white);
+    border: 1px solid var(--mic-gray-200);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+  
+  .card-header {
+    @apply flex flex-col space-y-1.5 p-6;
+    border-bottom: 1px solid var(--mic-gray-200);
+  }
+  
+  .card-title {
+    @apply text-2xl font-semibold leading-none tracking-tight;
+    color: var(--mic-deep-blue);
+  }
+  
+  .card-description {
+    @apply text-sm;
+    color: var(--mic-dark-gray);
+  }
+  
+  .card-content {
+    @apply p-6 pt-0;
+  }
+  
+  .card-footer {
+    @apply flex items-center p-6 pt-0;
+    border-top: 1px solid var(--mic-gray-200);
+  }
+  
+  /* MIC Themed Input Components */
+  .input {
+    @apply flex h-10 w-full rounded-md px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:cursor-not-allowed disabled:opacity-50;
+    background-color: var(--mic-white);
+    border: 1px solid var(--mic-gray-300);
+    color: var(--mic-black);
+  }
+  
+  .input::placeholder {
+    color: var(--mic-gray-500);
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: var(--mic-deep-blue);
+    box-shadow: 0 0 0 2px var(--mic-deep-blue), 0 0 0 4px rgba(0, 43, 127, 0.1);
+  }
+  
+  .label {
+    @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+    color: var(--mic-black);
+  }
+  
+  /* MIC Themed Badge Components */
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .badge-primary {
+    background-color: rgba(211, 47, 47, 0.1);
+    color: var(--mic-bright-red);
+  }
+  
+  .badge-secondary {
+    background-color: rgba(0, 43, 127, 0.1);
+    color: var(--mic-deep-blue);
+  }
+  
+  .badge-success {
+    background-color: rgba(0, 128, 0, 0.1);
+    color: var(--mic-logo-green);
+  }
+  
+  .badge-warning {
+    background-color: rgba(255, 204, 0, 0.1);
+    color: var(--mic-yellow-dark);
+  }
+  
+  .badge-danger {
+    background-color: rgba(211, 47, 47, 0.1);
+    color: var(--mic-bright-red);
+  }
+  
+  /* MIC Navigation Components */
+  .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    color: #6b7280;
+    transition: colors 0.2s ease;
+  }
+  
+  .nav-item:hover {
+    background-color: var(--mic-gray-50);
+    color: var(--mic-deep-blue);
+  }
+  
+  .nav-item.active {
+    background-color: var(--mic-bright-red);
+    color: var(--mic-white);
+  }
+  
+  .nav-item.active:hover {
+    background-color: var(--mic-red-dark);
+  }
+
+  /* Enhanced MIC Navigation Styles */
+  .nav-item-enhanced {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .nav-item-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .nav-item-enhanced:hover::before {
+    left: 100%;
+  }
+
+  /* Active Navigation Indicators */
+  .nav-active-indicator {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 60%;
+    background: linear-gradient(to bottom, var(--mic-bright-red), var(--mic-red-dark));
+    border-radius: 0 8px 8px 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-item-active .nav-active-indicator {
+    opacity: 1;
+    height: 80%;
+  }
+
+  /* Navigation Hover Effects */
+  .nav-hover-bg {
+    background: rgba(0, 43, 127, 0.05);
+    backdrop-filter: blur(10px);
+  }
+  
+  .nav-hover-bg:hover {
+    background: rgba(0, 43, 127, 0.1);
+    transform: translateX(4px);
+  }
+
+  /* Sidebar Logo Animation */
+  .logo-container {
+    transition: all 0.3s ease;
+  }
+  
+  .logo-container:hover {
+    transform: scale(1.05);
+  }
+  
+  .logo-container img {
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 43, 127, 0.1));
+  }
+  
+  .logo-container:hover img {
+    filter: drop-shadow(0 4px 8px rgba(0, 43, 127, 0.2));
+  }
+
+  /* Enhanced Button Styles */
+  .btn-nav {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-nav::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+  }
+  
+  .btn-nav:active::after {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* User Section Enhancements */
+  .user-section {
+    backdrop-filter: blur(10px);
+    background: rgba(249, 250, 251, 0.8);
+    border: 1px solid rgba(229, 231, 235, 0.5);
+  }
+  
+  .user-avatar {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .user-avatar::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, var(--mic-bright-red), var(--mic-deep-blue), var(--mic-logo-green));
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .user-avatar:hover::before {
+    opacity: 1;
+  }
+
+  /* Mobile Menu Enhancements */
+  .mobile-menu-backdrop {
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  .mobile-menu-panel {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(229, 231, 235, 0.5);
+  }
+
+  /* Responsive Navigation Text */
+  @media (max-width: 1024px) {
+    .nav-text {
+      font-size: 0.875rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .nav-text {
+      font-size: 0.8rem;
+    }
+  }
+
+  /* Enhanced Transitions */
+  .transition-nav {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .transition-nav:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Navigation Badge Styles */
+  .nav-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--mic-bright-red);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Sidebar Section Dividers */
+  .sidebar-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--mic-gray-200), transparent);
+    margin: 1rem 0;
+  }
+
+  /* Enhanced Focus States */
+  .nav-item:focus-visible {
+    outline: 2px solid var(--mic-bright-red);
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+  
+  .nav-item:focus-visible .nav-icon {
+    color: var(--mic-bright-red);
+  }
+
+  /* Smooth Scale Animations */
+  .scale-on-hover {
+    transition: transform 0.2s ease;
+  }
+  
+  .scale-on-hover:hover {
+    transform: scale(1.02);
+  }
+  
+  .scale-on-active {
+    transition: transform 0.1s ease;
+  }
+  
+  .scale-on-active:active {
+    transform: scale(0.98);
+  }
+
+  /* Navigation Loading States */
+  .nav-loading {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
+  .nav-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Loading animation */
+.loading-spinner {
+  @apply animate-spin rounded-full border-2 border-secondary-300 border-t-primary-600;
+}
+
+/* Fade animations */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.slide-down {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* MIC Themed Status and Role Styles */
+.status-pending {
+  color: var(--mic-yellow-dark);
+  background-color: rgba(255, 204, 0, 0.1);
+  border-color: var(--mic-logo-yellow);
+}
+
+.status-approved {
+  color: var(--mic-logo-green);
+  background-color: rgba(0, 128, 0, 0.1);
+  border-color: var(--mic-logo-green);
+}
+
+.status-rejected {
+  color: var(--mic-bright-red);
+  background-color: rgba(211, 47, 47, 0.1);
+  border-color: var(--mic-bright-red);
+}
+
+/* MIC Role Badge Styles */
+.role-admin {
+  background-color: rgba(211, 47, 47, 0.1);
+  color: var(--mic-bright-red);
+  border: 1px solid var(--mic-bright-red);
+}
+
+.role-hod {
+  background-color: rgba(0, 43, 127, 0.1);
+  color: var(--mic-deep-blue);
+  border: 1px solid var(--mic-deep-blue);
+}
+
+.role-employee {
+  background-color: rgba(0, 128, 0, 0.1);
+  color: var(--mic-logo-green);
+  border: 1px solid var(--mic-logo-green);
+}
+
+/* Additional modern animations and effects */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Enhanced card hover effects */
+.card:hover {
+  @apply shadow-xl transform scale-105 transition-all duration-300;
+}
+
+/* Smooth transitions for buttons */
+.btn {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.btn:hover {
+  @apply transform -translate-y-0.5 shadow-lg;
+}
+
+/* Enhanced focus states */
+.input:focus {
+  @apply ring-2 ring-offset-2 transition-all duration-200;
+}
+
+/* Gradient text utilities */
+.gradient-text {
+  @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+}
+
+.gradient-text-green {
+  @apply bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent;
+}
+
+.gradient-text-purple {
+  @apply bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent;
+}
+
+/* Enhanced shadow utilities */
+.shadow-soft {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-medium {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-large {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Glass morphism effect */
+.glass {
+  @apply bg-white bg-opacity-20 backdrop-blur-lg border border-white border-opacity-30;
+}
+
+/* Improved loading states */
+.skeleton {
+  @apply bg-gray-200 animate-pulse rounded;
+}
+
+/* Enhanced status indicators */
+.status-indicator {
+  @apply w-3 h-3 rounded-full inline-block mr-2;
+}
+
+.status-indicator.success {
+  @apply bg-green-500;
+}
+
+.status-indicator.warning {
+  @apply bg-yellow-500;
+}
+
+.status-indicator.error {
+  @apply bg-red-500;
+}
+
+.status-indicator.info {
+  @apply bg-blue-500;
+}
+
+/* Modern progress bars */
+.progress-bar {
+  @apply w-full bg-gray-200 rounded-full h-2;
+}
+
+.progress-fill {
+  @apply h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-300;
+}
+
+/* Enhanced notification styles */
+.notification {
+  @apply rounded-lg p-4 mb-4 border-l-4 shadow-md;
+}
+
+.notification.success {
+  @apply bg-green-50 border-green-500 text-green-700;
+}
+
+.notification.error {
+  @apply bg-red-50 border-red-500 text-red-700;
+}
+
+.notification.warning {
+  @apply bg-yellow-50 border-yellow-500 text-yellow-700;
+}
+
+.notification.info {
+  @apply bg-blue-50 border-blue-500 text-blue-700;
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .card {
+    @apply mx-2;
+  }
+  
+  .btn-lg {
+    @apply h-11 px-5 text-base;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .card {
+    @apply shadow-none border border-gray-300;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  .dark-mode {
+    @apply bg-gray-900 text-white;
+  }
+  
+  .dark-mode .card {
+    @apply bg-gray-800 border-gray-700;
+  }
+  
+  .dark-mode .input {
+    @apply bg-gray-700 border-gray-600 text-white;
+  }
+}
